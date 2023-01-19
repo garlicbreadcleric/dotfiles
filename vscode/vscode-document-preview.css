@@ -177,14 +177,16 @@ body>ol {
 
 ul,
 ol {
-    padding-left: 1em;
+    padding-left: 2em;
     clear: left;
 }
 
+/*
 li ul,
 li ol {
     padding-left: 2em
 }
+*/
 
 ul.no-list,
 ol.no-list {
@@ -209,30 +211,30 @@ li {
     font-size:0.9rem;
 }
 
-.documentPreview-link-wikipedia::after {
-    font-size: 0.9rem !important;
-    margin-left: 0.2rem;
+.documentPreview-link-wikipedia::before {
+    font-size: 0.9em !important;
+    margin-right: 0.2rem;
     content: "\f266";
     font: var(--fa-font-brands);
 }
 
-.documentPreview-link-github::after {
-    font-size: 0.9rem !important;
-    margin-left: 0.2rem;
+.documentPreview-link-github::before {
+    font-size: 0.9em !important;
+    margin-right: 0.2rem;
     content: "\f09b";
     font: var(--fa-font-brands);
 }
 
-.documentPreview-link-web::after {
-    font-size: 0.9rem !important;
-    margin-left: 0.2rem;
+.documentPreview-link-web::before {
+    font-size: 0.9em !important;
+    margin-right: 0.2rem;
     content: "\f57d";
     font: var(--fa-font-solid);
 }
 
-.documentPreview-link-note::after {
-    font-size: 0.9rem !important;
-    margin-left: 0.2rem;
+.documentPreview-link-note::before {
+    font-size: 0.9em !important;
+    margin-right: 0.2rem;
     content: "\f249";
     font: var(--fa-font-solid);
 }
@@ -263,34 +265,10 @@ blockquote {
     font-style: italic;
     background: none;
     color: var(--fading-fg);
+    border-left: 3px solid var(--fading-fg);
+    margin-left: 0;
+    padding-left: 1rem;
 }
-
-blockquote > :first-child::before {
-    content: "“";
-}
-
-blockquote > :last-child::after {
-    content: "”";
-}
-
-/*
-blockquote {
-    margin: 16px 0;
-    font-size: inherit;
-    padding: 0 15px;
-    color: var(--fading-fg);
-    background-color: var(--accent-bg);
-    border-left: 4px solid var(--border-fg);
-    clear: both;
-}
-
-blockquote>:first-child {
-    margin-top: 0
-}
-
-blockquote>:last-child {
-    margin-bottom: 0
-}*/
 
 hr {
     height: 4px;
@@ -456,79 +434,9 @@ body {
     object-position: 50% 0;
 }
 
-/*
-div.comment {
-  border-left: 3px solid purple;
-  background: rgba(255, 0, 255, 0.2);
-  padding-left: 1em;
+#footnotes {
+  font-size: 0.8rem;
 }
-*/
-
-/*
-div.comment, div.question {
-  border-left: 3px solid var(--border-fg);
-  padding-left: 1rem;
-  padding-right: 1rem;
-}*/
-
-div.comment,
-div.question,
-div.definition,
-div.example {
-  padding: 0;
-  margin: 0;
-}
-
-div.comment,
-div.question,
-span.comment,
-span.question
-/*div.definition,
-span.definition,
-div.example,
-span.example*/ {
-  color: var(--fading-fg);
-}
-
-/*
-div.definition > em, span.definition > em {
-  color: var(--accent-fg);
-}
-*/
-
-div.comment > :first-child::before, span.comment::before {
-  color: var(--accent-fg);
-  content: "Комментарий: ";
-  font-weight: bold;
-  display: inline;
-}
-
-div.question > :first-child::before, span.question::before {
-  color: var(--accent-fg);
-  content: "Вопрос: ";
-  font-weight: bold;
-  display: inline;
-}
-
-div.definition > :first-child::before, span.definition::before {
-  color: var(--accent-fg);
-  content: "Определение: ";
-  font-weight: bold;
-  display: inline;
-}
-
-div.example > :first-child::before, span.example::before {
-  color: var(--accent-fg);
-  content: "Пример: ";
-  font-weight: bold;
-  display: inline;
-}
-
-/*
-#footnotes > ol > li {
-  margin-top: 0.5em;
-}
-*/
 
 li, li p {
   margin-top: 0.5rem !important;
@@ -545,4 +453,20 @@ li > blockquote {
 
 .footnote-ref > sup::after {
   content: "]";
+}
+
+sup, sub {
+  vertical-align: baseline;
+  position: relative;
+}
+
+sup { top: -0.5em; }
+sub { top:  0.5em; }
+
+.sourceCode + pre:not([class]) {
+  background: var(--primary-fg);
+}
+
+.sourceCode + pre:not([class]) > code {
+  color: var(--accent-bg);
 }

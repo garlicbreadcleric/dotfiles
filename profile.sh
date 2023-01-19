@@ -6,6 +6,8 @@
 #
 # - markane
 # - codium
+# - r
+# - pandoc
 #
 # Configuration tips
 # ------------------

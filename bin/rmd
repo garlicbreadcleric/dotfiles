@@ -1,0 +1,15 @@
+#!/bin/bash
+
+function render_rmd() {
+  local tmp_in=`mktemp -t input`.rmd
+  local tmp_out=`mktemp -t output`.md
+
+  cat - > $tmp_in
+  Rscript --vanilla -e "library('knitr');knit('$tmp_in', output = '$tmp_out', quiet = TRUE)" > /dev/null
+  cat $tmp_out | pandoc -C --from markdown+autolink_bare_uris --to html --katex
+
+  unlink $tmp_in
+  unlink $tmp_out
+}
+
+render_rmd
